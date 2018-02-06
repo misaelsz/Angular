@@ -1,0 +1,12 @@
+
+    <div class="panel-heading">
+      <h1>Lista de Pessoas</h1>
+    </div>
+
+            <button id="btnListar" class="btn btn-primary" type="button" (click)='listarPessoas()'>Listar</button>
+            <h2 >Pessoas:</h2>
+            <ul class="Pessoa">
+              <li *ngFor="let pessoa of listaPessoas">
+                <span class="badge">{{pessoa.nome}}</span>
+              </li>
+            </ul>
