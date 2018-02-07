@@ -1,13 +1,13 @@
+import { Response } from '@angular/http';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Pessoa } from './pessoa/pessoa';
-import { Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http/src/module';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable()
 export class PessoaService {
@@ -17,8 +17,6 @@ export class PessoaService {
       
   getPessoas(): Observable<Pessoa> {
     return this._http.get(this._Url)
-        .map((response: Response) => <Pessoa>response.json())
-        .do(data => console.log('All: ' + JSON.stringify(data)))
         .catch(this.handleError);
 }
 

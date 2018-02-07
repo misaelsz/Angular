@@ -9,6 +9,8 @@ import { Pessoa } from './pessoa';
 })
 export class PessoaComponent implements OnInit {
 private listaPessoas: Pessoa;
+private pessoa: Pessoa;
+
   constructor(private pessoaService: PessoaService) { }
 
 
@@ -17,6 +19,7 @@ private listaPessoas: Pessoa;
     .subscribe((data: Pessoa) => this.listaPessoas = data,
     error => console.log(error));
 }
+
 
   ngOnInit() {
   }
