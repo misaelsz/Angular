@@ -8,17 +8,19 @@ import { Pessoa } from './pessoa';
   styleUrls: ['./pessoa.component.css']
 })
 export class PessoaComponent implements OnInit {
-private listaPessoas: Pessoa;
-private pessoa: Pessoa;
+
+private listaDePessoas:Pessoa;
+
 
   constructor(private pessoaService: PessoaService) { }
 
 
   listarPessoas(): void {
      this.pessoaService.getPessoas()
-    .subscribe((data: Pessoa) => this.listaPessoas = data,
+    .subscribe((data: Pessoa) => this.listaDePessoas = data,
     error => console.log(error));
 }
+
 
 
   ngOnInit() {

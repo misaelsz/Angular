@@ -4,5 +4,6 @@ export class Pessoa {
     email: string
     senha:string
     telefone:string
-    endereco:string
+    Escolaridade:string
+    Sexo:string
 }
