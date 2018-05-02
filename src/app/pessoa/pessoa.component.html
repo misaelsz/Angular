@@ -1,12 +1,23 @@
+<div class="panel-heading">
+  <h1>Lista de Pessoas</h1>
+</div>
 
-    <div class="panel-heading">
-      <h1>Lista de Pessoas</h1>
-    </div>
+<button id="btnListar" class="btn btn-primary" type="button" (click)='listarPessoas()'>Listar</button>
+<h2>Pessoas:</h2>
+<ul class="Pessoa">
+  <li *ngFor="let pessoa of pessoas">
+    <a routerLink="/detalhes/{{pessoa.id}}">
+      <span class="badge">{{pessoa.nome}}</span> 
+    </a>
+    <button (click)="editar(pessoa.id)">Editar</button>
+    <button (click)="delete(pessoa.id)">X</button>
+  </li>
+</ul>
 
-            <button id="btnListar" class="btn btn-primary" type="button" (click)='listarPessoas()'>Listar</button>
-            <h2 >Pessoas:</h2>
-            <ul class="Pessoa">
-              <li *ngFor="let pessoa of listaDePessoas">
-                <span class="badge">{{pessoa.nome}}</span>
-              </li>
-            </ul>
+<!-- <ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul> -->

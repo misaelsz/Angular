@@ -6,14 +6,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PessoaComponent } from './pessoa.component';
 import { Browser } from 'selenium-webdriver';
-
+import { AppRoutingModule } from '..//app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule
   ],
   declarations: [PessoaComponent],
 
