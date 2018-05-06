@@ -26,7 +26,8 @@ export class PessoaService {
             .catch(this.handleError);
     }
 
-    getPessoaPorId(id: number): Observable<Pessoa> {
+    getPessoaPorId(id: any): Observable<Pessoa> {
+        console.log("Entrou no get por id"+ id);
         const url = `${this._Url}/${id}`;
         return this._http.get<Pessoa>(url)
     }

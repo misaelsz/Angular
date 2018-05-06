@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Pessoa } from '../pessoa/pessoa';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -17,28 +18,31 @@ export class DetalhesComponent implements OnInit {
 
   @Input() pessoa: Pessoa = new Pessoa;
 
-  constructor(  private route: ActivatedRoute,
-    private pessoaService: PessoaService, 
+  constructor(private route: ActivatedRoute,
+    private pessoaService: PessoaService,
     private location: Location,
-  private activatedRouter:ActivatedRoute ) { }
+    private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getPessoa();
   }
 
-  getPessoa(): void{ 
+  getPessoa(): void {
     console.log("entrou no get");
-    var idPessoa: number;
-    this.activatedRouter.params.subscribe( params => this.pessoa.id =  params.id);
-console.log(this.pessoa.id);
-       /*const id = +this.route.snapshot.paramMap.get('id');
-       this.pessoaService.getPessoaPorId(id)
-       .subscribe(pessoa => this.pessoa = pessoa);
-       console.log("Id:"+ id);*/
-}
+    var idPessoa: any;
+    /*;+this.route.snapshot.paramMap.get('id');*/
+    
+    const pessoa = this.activatedRouter.params.subscribe( params => this.pessoa.id =  params.id);
+    this.pessoaService.getPessoaPorId(this.pessoa.id)
+      .subscribe(pessoa => this.pessoa = pessoa);
+    console.log("Id:" + this.pessoa.id);
 
-goBack(): void {
-  this.location.back();
-}
+    console.log(this.pessoa.id);
+    console.log(this.pessoa.nome);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 
 }
